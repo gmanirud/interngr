@@ -1,0 +1,35 @@
+<h1>Listing recruiters</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Company</th>
+      <th>City</th>
+      <th>Country</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @recruiters.each do |recruiter| %>
+      <tr>
+        <td><%= recruiter.name %></td>
+        <td><%= recruiter.email %></td>
+        <td><%= recruiter.company %></td>
+        <td><%= recruiter.city %></td>
+        <td><%= recruiter.country %></td>
+        <td><%= link_to 'Show', recruiter %></td>
+        <td><%= link_to 'Edit', edit_recruiter_path(recruiter) %></td>
+        <td><%= link_to 'Destroy', recruiter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Recruiter', new_recruiter_path %>
