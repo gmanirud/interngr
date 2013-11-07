@@ -1,6 +1,9 @@
 Interngration::Application.routes.draw do
-  resources :recruiters
+  get "static_pages/home"
+  get "static_pages/about"
+  get "static_pages/contact"
 
+  resources :recruiters
   resources :students
 
   # The priority is based upon order of creation: first created -> highest priority.
