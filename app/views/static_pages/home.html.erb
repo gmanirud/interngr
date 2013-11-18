@@ -1,3 +1,110 @@
 <% provide(:title, 'Multimedia platform to connect startups with students') %>
 
-<h1>Multimedia platform to connect startups with students</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> <%= yield(:title) %> | Interngration</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+    <%= favicon_link_tag 'favicon.ico' %>
+    <%= render 'layouts/shim'%>
+   
+  </head>
+  <body>
+    <div class="navbar-wrapper">
+      <div class="container">
+
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">Interngration</a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Student Login</a></li>
+                <li><a href="#about">Register</a></li>
+                <li><a href="#contact">Recruiter?</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  	<div class="flex-video widescreen" style="margin: 0 auto;text-align:center;">
+    	<iframe src="//player.vimeo.com/video/76490050" width="800" height="491" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    </div>
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+    <!-- START THE FEATURETTES -->
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading"> Interngration. <span class="text-muted">Online Career Fairs</span></h2>
+          <p class="lead">Interngration is an online, multimedia platform to connect startups and SMEs with a great pool of university students.</p>
+        </div>
+        <div class="col-md-5">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-5">
+        	<%= image_tag("student.png", :class => "featurette-image img-responsive", alt: "Student Benefits") %>
+        </div>
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Students. <span class="text-muted">Find great employers.</span></h2>
+          <p class="lead">Our webinars allows you to understand the stories of uprising companies and apply 
+            for jobs that can shape the companies' futures. Our recruiting platform provides an environment 
+            for you to avoid the trouble presented by traditional career fairs and the tedious job 
+            application processes. You can now connect with potential employers from great companies, virtually - <strong>all for free</strong></p>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Recruiters. <span class="text-muted">Find great talent - from your office.</span></h2>
+          <p class="lead">You can now reach out to pools of talented students, right from your office. You don't have to dedicate a whole day to travel and setup a booth at a career fair. Moreover, geographic location now becomes a non-issue. Your company's located in Vancouver?
+          No worries, reach out to students in Toronto through a webinar! You also don't have to pay the exorbitant prices of registering for a 
+          campus event or career fair.</p>
+
+          <p class = "lead"> <strong>Interngration will be free for use in the Alpha version.</strong></p>
+        </div>
+        <div class="col-md-5">
+          <%= image_tag("recruiter.png", :class => "featurette-image img-responsive", alt: "Recruiter Benefits") %>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
+
+
+      <!-- FOOTER -->
+      <%= render 'layouts/footer'%>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../docs-assets/js/holder.js"></script>
+
+  </body>
+</html>
