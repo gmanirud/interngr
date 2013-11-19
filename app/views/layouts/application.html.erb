@@ -11,23 +11,8 @@
     <![endif]-->
 </head>
 <body>
-
-    <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="navbar-inner">
-        <div class="container">
-          <%= link_to "Interngration", '#', id: "logo" %>
-          <nav>
-            <ul class="nav pull-right">
-              <li><%= link_to "Home",    '#' %></li>
-              <li><%= link_to "Account",    '#' %></li>
-              <li><%= link_to "Logout", '#' %></li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </header>
-
     <div class="container">
       <%= yield %>
+      <%= render 'layouts/footer' %>
     </div>
 </html>
