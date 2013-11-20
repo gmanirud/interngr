@@ -2,6 +2,7 @@
     <div class="navbar-wrapper">
       <div class="container">
 
+        <!--Navbar-->
         <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -19,5 +20,65 @@
 
       </div>
     </div>
+    <!--End Navbar-->
 
-<h1>Contact Us</h1>
+    <h2>Meet the team</h2>
+
+    <!--Team -->
+    <div class="row">
+      <div class ="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <%= image_tag("gm_cropped.jpg", :class => "circular", alt: "Anirudh Ganti") %>
+          <div class ="caption">
+            <h3>Anirudh Ganti</h3>
+            <p>The motivation to find Interngration came about when he was applying for his PEY placement and career fairs were often clashing with his timetable. With an idea, it wasn't long before he decided to plunge into the world of web programming and Interngration was founded.</p>
+          </div>
+        </div>
+      </div>
+
+       <div class ="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <%= image_tag("hargun_cropped.jpg", :class => "circular", alt: "Hargun Suri") %>
+          <div class ="caption">
+            <h3>Hargun Suri</h3>
+            <p>I am lazy and need to write something about myself.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2>Drop us a message</h2>
+
+    <form class="well span8">
+      <div class="row">
+        <div class="span3">
+          <label>First Name</label>
+          <input type="text" class="span3" placeholder="Your First Name">
+          <label>Last Name</label>
+          <input type="text" class="span3" placeholder="Your Last Name">
+          <label>Email Address</label>
+          <div class="input-prepend">
+            <span class="add-on"><i class="icon-envelope"></i></span><input type="text" id="inputIcon" class="span2" style="width:233px" placeholder="Your email address">
+          </div>
+          <label>Subject
+          <select id="subject" name="subject" class="span3">
+            <option value="na" selected="">Choose One:</option>
+            <option value="service">General Customer Service</option>
+            <option value="suggestions">Suggestions</option>
+            <option value="product">Product Support</option>
+          </select>
+          </label>
+        </div>
+      <div class="span5">
+        <label>Message</label>
+        <textarea name="message" id="message" class="input-xlarge span5" rows="10"></textarea>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary pull-right">Send</button>
+  </form>
+
+
+
+
+
+

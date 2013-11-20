@@ -27,3 +27,17 @@ textarea {
   margin-bottom: 10px;
 }
 
+/*For contact page*/
+
+.circular {
+  margin-right: auto;
+  margin-left: auto;
+  width: 160px;
+  height: 160px;
+  border-radius: 75px;
+  -webkit-border-radius: 75px;
+  -moz-border-radius: 75px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  }
