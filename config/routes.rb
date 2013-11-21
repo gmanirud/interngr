@@ -5,6 +5,7 @@ Interngration::Application.routes.draw do
   root 'static_pages#home'
   match '/contact', to: 'static_pages#contact',    via: 'get'
   match '/about', to: 'static_pages#about',    via: 'get'
+  match '/student_signup', to: 'students#new', via: 'get'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
