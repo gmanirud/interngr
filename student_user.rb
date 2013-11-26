@@ -9,5 +9,3 @@ class Student
 		@school = edu_info[:school]
 		@discipline = edu_info[:discipline]
 	end
-
-end
