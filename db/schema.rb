@@ -13,6 +13,16 @@
 
 ActiveRecord::Schema.define(version: 20131122041629) do
 
+  create_table "recruiters", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "company"
+    t.string   "city"
+    t.string   "country"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "students", force: true do |t|
     t.string   "fname"
     t.string   "lname"
