@@ -7,7 +7,6 @@ class CreateStudents < ActiveRecord::Migration
       t.integer :year
       t.string :school
       t.string :discipline
-
       t.timestamps
     end
   end

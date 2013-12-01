@@ -4,6 +4,9 @@ ruby '2.0.0'
 
 gem 'rails', '4.0.1'
 gem 'bootstrap-sass-rails'
+gem 'bcrypt-ruby' , '3.1.2'
+gem 'puma'
+gem 'hirb'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'
@@ -31,4 +34,3 @@ group :production do
   gem 'rails_12factor', '0.0.2'
 end
 
-gem 'puma'

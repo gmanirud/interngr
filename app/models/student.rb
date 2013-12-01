@@ -12,5 +12,8 @@ class Student < ActiveRecord::Base
 	validates :year, presence: true
 	validates :school, presence: true
 	validates :discipline, presence: true
+	has_secure_password
+	validates :password, length:  {minimum: 6}
+
 
 end

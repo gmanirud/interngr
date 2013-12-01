@@ -3,7 +3,7 @@ require 'spec_helper'
 #Spec for the student model
 
 describe Student do
-	before {@test_student = Student.new(fname: "Bob", lname: "Loblaw", email: "bob@mail.utoronto.ca", year: 1, school: "University of Toronto", discipline: "ECE")}
+	before {@test_student = Student.new(fname: "Bob", lname: "Loblaw", password: "interngrpass", password_confirmation: "interngrpass", email: "bob@mail.utoronto.ca", year: 1, school: "University of Toronto", discipline: "ECE")}
 	subject {@test_student}
 
 	it {should respond_to (:fname)}
@@ -12,6 +12,8 @@ describe Student do
 	it {should respond_to (:year)}
 	it {should respond_to (:school)}
 	it {should respond_to (:discipline)}
+	it {should respond_to (:password_digest)}
+	it {should respond_to (:authenticate)}
 	it {should be_valid}
 
 	#presence tests
@@ -43,12 +45,12 @@ describe Student do
 
 	#length validation tests
 	describe "first name is too long" do
-		before {@test_student.fname = "a"*20}
+		before {@test_student.fname = "a"*21}
 		it {should_not be_valid}
 	end
 
 	describe "last name is too long" do
-		before {@test_student.lname = "a"*30}
+		before {@test_student.lname = "a"*31}
 		it {should_not be_valid}
 	end
 
@@ -65,7 +67,7 @@ describe Student do
 
   describe "when email format is valid" do
     it "should be valid" do
-      addresses = %w[user@foo.COM A_US-ER@f.b.org frst.lst@foo.jp a+b@baz.cn]
+      addresses = %w[user@mail.utoronto.COM]
       addresses.each do |valid_address|
         @test_student.email = valid_address
         expect(@test_student).to be_valid
@@ -81,5 +83,30 @@ describe Student do
   	end
   	it {should_not be_valid}
   end
+
+  #Authentication tests
+  describe "with a password that's too short" do
+    before { @test_student.password = @test_student.password_confirmation = "a" * 5 }
+    it { should be_invalid }
+  end
+
+  describe "return value of authenticate method" do
+    before { @test_student.save }
+    let(:found_student) { Student.find_by(email: @test_student.email) }
+
+    describe "with valid password" do
+      it { should eq found_student.authenticate(@test_student.password) }
+    end
+
+    describe "with invalid password" do
+      let(:user_for_invalid_password) { found_student.authenticate("wrongpassword") }
+
+      it { should_not eq user_for_invalid_password }
+      specify { expect(user_for_invalid_password).to be_false }
+    end
+  end
+
+
+
 
 end
