@@ -9,6 +9,7 @@ html {
 
 body {
   padding-top: 60px;
+  margin-top:30px;
 }
 
 section {
@@ -41,3 +42,10 @@ textarea {
   -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
   -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
   }
+
+/*Landing page sign in dropdown*/
+
+#login-nav input { margin-bottom: 15px; }
+
+
+
