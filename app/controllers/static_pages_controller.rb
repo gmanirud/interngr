@@ -1,6 +1,10 @@
 class StaticPagesController < ApplicationController
 
-  def home
+  def student_landing_page
+  	render :layout => false #Don't want to use the default layout for landing page
+  end
+
+   def recruiter_landing_page
   	render :layout => false #Don't want to use the default layout for landing page
   end
 

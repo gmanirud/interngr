@@ -1,4 +1,4 @@
-<% provide(:title, 'Multimedia platform to connect startups with students') %>
+<% provide(:title, 'Recruiters | Multimedia platform to connect startups with students') %>
 
 <!DOCTYPE html>
 <html>
@@ -13,11 +13,12 @@
   </head>
   <body>
     <!--Navbar-->
-   <%= render 'layouts/landingNavbarStudents'%>
+   <%= render 'layouts/landingNavbarRecruiters'%>
+    
     <!--End Navbar-->
 
    <div class="flex-video widescreen" style="margin: 0 auto;text-align:center;">
-      <iframe src="//player.vimeo.com/video/76490050" width="800" height="491" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      <iframe src="//player.vimeo.com/video/79167478" width="800" height="491" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     </div>
 
 
@@ -44,30 +45,15 @@
 
       <div class="row featurette">
         <div class="col-md-5">
-         <%= image_tag("student.png", :class => "featurette-image img-responsive", alt: "Student Benefits") %>
+          <%= image_tag("recruiter.png", :class => "featurette-image img-responsive", alt: "Recruiter Benefits") %>
         </div>
         <div class="col-md-7">
-          <h2 class="featurette-heading">Students. <span class="text-muted">Find great employers.</span></h2>
-          <p class="lead">Our webinars allows you to understand the stories of uprising companies and apply 
-            for jobs that can shape the companies' futures. Our recruiting platform provides an environment 
-            for you to avoid the trouble presented by traditional career fairs and the tedious job 
-            application processes. You can now connect with potential employers from great companies, virtually - <strong>all for free</strong></p>
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">Recruiters. <span class="text-muted">Find great talent - from your office.</span></h2>
+          <h2 class="featurette-heading">Recuiters. <span class="text-muted">Find great talent - from your office.</span></h2>
           <p class="lead">You can now reach out to pools of talented students, right from your office. You don't have to dedicate a whole day to travel and setup a booth at a career fair. Moreover, geographic location now becomes a non-issue. Your company's located in Vancouver?
           No worries, reach out to students in Toronto through a webinar! You also don't have to pay the exorbitant prices of registering for a 
           campus event or career fair.</p>
 
           <p class = "lead"> <strong>Interngration will be free for use in the Alpha version.</strong></p>
-        </div>
-        <div class="col-md-5">
-          <%= image_tag("recruiter.png", :class => "featurette-image img-responsive", alt: "Recruiter Benefits") %>
         </div>
       </div>
 
@@ -87,6 +73,8 @@
     <!-- Placed at the end of the document so the pages load faster -->
      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- Include all compiled plugins (below), or include individua
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
   </body>
 </html>
