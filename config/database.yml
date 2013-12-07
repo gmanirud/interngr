@@ -1,9 +1,7 @@
 development:
-  adapter: postgresql
-  database: interngr
+  adapter: sqlite3
+  database: db/development.sqlite3
   pool: 5
-  host: localhost
-  port: 5432
   timeout: 5000
 
 test:
