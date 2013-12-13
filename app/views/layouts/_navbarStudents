@@ -1,0 +1,20 @@
+ <div class="navbar-wrapper">
+      <div class="container">
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">Interngration</a>
+            </div>
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                  <li><%= link_to "Home", root_path %></li>
+                  <li><%= link_to "My Account", '#' %></li>
+                  <li><%= link_to "Logout", '#' %></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+          </div>
+        </div>
+      </div>
+    </div>

@@ -1,34 +1,44 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, @student.fname) %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @student.name %>
-</p>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+          <div class="well well-sm">
+            <div class="row">
+              <div class="col-sm-6 col-md-4">
+              <%= image_tag("http://placehold.it/380x500", :class => "img-rounded img-responsive", alt: "") %>
+              </div>
+              <div class="col-sm-6 col-md-8">
+                <h4><%= "#{@student.fname} #{@student.lname}" %></h4>    
+                <p>
+                  <i class="glyphicon glyphicon-envelope"></i> <%=@student.email%>
+                  </br>
+                  <i class= "glyphicon glyphicon-list"></i> <%="#{@student.school}, #{@student.discipline}"%>
+                  </br>
+                  <i class= "glyphicon glyphicon-pencil"></i> <%="Year: #{@student.year}"%>
+                </p>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary">Edit Information</button>
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                      <span class="caret"></span><span class="sr-only"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><%= link_to "Change Year", '#' %></li>
+                      <li><%= link_to "Change School", '#' %></li>
+                    </ul>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-success">Upload Resume</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @student.email %>
-</p>
-
-<p>
-  <strong>School:</strong>
-  <%= @student.school %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @student.city %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @student.country %>
-</p>
-
-<p>
-  <strong>Year:</strong>
-  <%= @student.year %>
-</p>
+ 
 
 <%= link_to 'Edit', edit_student_path(@student) %> |
 <%= link_to 'Back', students_path %>
