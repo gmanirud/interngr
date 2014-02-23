@@ -7,6 +7,7 @@ class StudentsController < ApplicationController
 
   def index
     @students = Student.paginate(page:params[:page])
+    render layout: 'studentLayout'
   end
 
   def show
