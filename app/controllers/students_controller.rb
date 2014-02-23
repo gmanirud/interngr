@@ -1,8 +1,12 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_student, only: [:edit, :update, :index, :destroy]
+  before_action :correct_student, only: [:edit, :update]
+  before_action :admin_user, only: [:destroy]
+
 
   def index
-    @students = Student.all
+    @students = Student.paginate(page:params[:page])
   end
 
   def show
@@ -22,6 +26,7 @@ class StudentsController < ApplicationController
     @student = Student.new(student_params)
 
     if @student.save
+      sign_in @student #Sign in user once they register
       flash[:success] = "Welcome to Interngration!"
       redirect_to @student
     else
@@ -32,25 +37,21 @@ class StudentsController < ApplicationController
   # PATCH/PUT /students/1
   # PATCH/PUT /students/1.json
   def update
-    respond_to do |format|
-      if @student.update(student_params)
-        format.html { redirect_to @student, notice: 'Student was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @student.errors, status: :unprocessable_entity }
-      end
+    if @student.update_attributes(student_params)
+      #handle successful update
+      flash[:success] = "Profile Updated"
+      redirect_to @student
+    else
+      render 'edit'
     end
   end
 
   # DELETE /students/1
   # DELETE /students/1.json
   def destroy
-    @student.destroy
-    respond_to do |format|
-      format.html { redirect_to students_url }
-      format.json { head :no_content }
-    end
+    Student.find(params[:id]).destroy
+    flash[:success] = "Student deleted"
+    redirect_to students_url
   end
 
   private
@@ -63,5 +64,23 @@ class StudentsController < ApplicationController
     def student_params
       params.require(:student).permit(:fname, :lname, :email, :school, :discipline, :year, :password, :password_confirmation)
     end
+
+    def signed_in_student
+      unless signed_in?
+        store_location
+        flash[:notice] = "Please sign in"
+        redirect_to student_signin_url
+      end      
+    end
+
+    def correct_student
+      @student = Student.find(params[:id])
+      redirect_to(root_url) unless current_student?(@student)
+    end
+
+    def admin_user
+      redirect_to(root_url) unless current_student.admin?      
+    end
+
 end
   

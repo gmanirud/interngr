@@ -13,8 +13,21 @@ describe Student do
 	it {should respond_to (:school)}
 	it {should respond_to (:discipline)}
 	it {should respond_to (:password_digest)}
+  it {should respond_to (:remember_token)}
 	it {should respond_to (:authenticate)}
+  it {should respond_to (:admin)}
+
 	it {should be_valid}
+  it {should_not be_admin}
+
+  describe "with admin attribute set to true" do
+    before do
+      @test_student.save!
+      @test_student.toggle!(:admin)
+    end
+
+    it {should be_admin}
+  end
 
 	#presence tests
 
@@ -45,7 +58,7 @@ describe Student do
 
 	#length validation tests
 	describe "first name is too long" do
-		before {@test_student.fname = "a"*21}
+		before {@test_student.fname = "a"*31}
 		it {should_not be_valid}
 	end
 
@@ -106,7 +119,8 @@ describe Student do
     end
   end
 
-
-
-
+  describe "remember token" do
+    before {@test_student.save}
+    its (:remember_token) {should_not be_blank}
+    end
 end

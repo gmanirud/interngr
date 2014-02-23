@@ -6,10 +6,10 @@
 <%= render 'shared/error_messages' %>
 
 <div class ="row">
-	<div class="col-md-6">
+	<div class="form-group">
+		<%= form_for(@student, :html => {:class => "form-horizontal"}) do |f| %>
+		<div class="col-md-6">
 		<h4>Basic Information</h4>
-		<div class="form-group">
-			<%= form_for(@student, :html => {:class => "form-horizontal"}) do |f| %>
 
 			<%=f.label :fname, "First Name", :class => "control-label" %>
 			<%=f.text_field :fname, :placeholder => "First Name", :class => "form-control input-md"%>
@@ -27,9 +27,8 @@
 			<%=f.text_field :year, :placeholder => "1/2/3/4/New Grad", :class => "form-control input-md"%>
 
 		</div>
-	</div>
-
-	<div class="col-md-6">
+	
+		<div class="col-md-6">
 		<h4>Account Information</h4>
 
 			<%=f.label :email, "Email", :class => "control-label" %>
@@ -40,9 +39,10 @@
 
 			<%=f.label :password_confirmation, "Password Confirmation", :class => "control-label" %>
 			<%=f.password_field :password_confirmation, :placeholder => "Confim Password", :class => "form-control input-md"%>
-
+			<br><br><br><br><br>
 			<%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
-			<%end%>
+		</div>
+		<%end%>
 	</div>
 </div>
 

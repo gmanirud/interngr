@@ -1,3 +1,4 @@
+
  <div class="navbar-wrapper">
       <div class="container">
         <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -5,14 +6,22 @@
             <div class="navbar-header">
               <a class="navbar-brand" href="#">Interngration</a>
             </div>
-
+             <%if signed_in?%>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
+                  <li><%= link_to "Students", students_path %></li>
                   <li><%= link_to "Home", root_path %></li>
-                  <li><%= link_to "My Account", '#' %></li>
+                  <li><%= link_to "My Account", edit_student_path(current_student) %></li>
                   <li><%= link_to "Logout", '#' %></li>
                 </ul>
             </div>
+            <%else%>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                  <li><%= link_to "Student Sign in", student_signin_path %></li>
+                </ul>
+            </div>
+            <%end%>
             <!-- /.navbar-collapse -->
           </div>
         </div>
