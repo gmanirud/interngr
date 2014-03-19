@@ -22,14 +22,14 @@ class Student < ActiveRecord::Base
 
 	end
 
-	def Student.encrypt(token)
+	def Student.hash(token)
 		Digest::SHA1.hexdigest(token.to_s)
 	end
 
 	private
 
 	  def create_remember_token
-	  	self.remember_token = Student.encrypt(Student.new_remember_token)
+	  	self.remember_token = Student.hash(Student.new_remember_token)
 	  end
 
 end

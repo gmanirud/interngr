@@ -7,7 +7,7 @@ def full_title(page_title)
 	end
 end
 
-def sign_in(user, options={})
+def sign_in(student, options={})
 	if options[:no_capybara]
 		#sign in w/o using capybara
 		remember_token = Student.new_remember_token

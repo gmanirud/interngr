@@ -6,13 +6,13 @@
             <div class="navbar-header">
               <a class="navbar-brand" href="#">Interngration</a>
             </div>
-             <%if signed_in?%>
+             <% if signed_in? %>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                   <li><%= link_to "Students", students_path %></li>
                   <li><%= link_to "Home", root_path %></li>
                   <li><%= link_to "My Account", edit_student_path(current_student) %></li>
-                  <li><%= link_to "Logout", '#' %></li>
+                  <li><%= link_to "Logout", student_signout_path, method: "delete" %></li>
                 </ul>
             </div>
             <%else%>

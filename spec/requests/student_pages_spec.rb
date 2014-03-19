@@ -28,6 +28,7 @@ describe "Student pages: " do
 			it "should list each student" do
 				Student.paginate(page: 1).each do |student|
 					expect(page).to have_selector('li', text: student.fname)
+				end
 			end
 		end
 
@@ -45,7 +46,7 @@ describe "Student pages: " do
 						click_link('delete', match: :first)
 					end.to change(Student, :count).by(-1)
 				end
-				it {should_not have_link('delete', href: student_path(admin)} #Dont let admin delete themselves
+				it {should_not have_link('delete', href: student_path(admin))} #Dont let admin delete themselves
 			end
 		end
 	end
@@ -82,10 +83,10 @@ describe "Student pages: " do
 				fill_in "Last Name",       with: "Smith"
 				fill_in "School",          with: "University of Toronto"
 				fill_in "Discipline",      with: "ECE"
-				#fill_in "Year",            with: "3"
-				fill_in "student_email",   with: "student@mail.utoronto.ca"
+				fill_in "Year",            with: "3"
+				fill_in "Email",   with: "student@mail.utoronto.ca"
 				fill_in "Password",        with: "login123", :match => :prefer_exact
-				fill_in "Confirmation",    with: "login123", :match => :prefer_exact
+				fill_in "Password Confirmation",    with: "login123", :match => :prefer_exact
 				click_button submit
 			end
 

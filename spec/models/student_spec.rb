@@ -13,6 +13,7 @@ describe Student do
 	it {should respond_to (:school)}
 	it {should respond_to (:discipline)}
 	it {should respond_to (:password_digest)}
+  it {should respond_to (:password_confirmation)}
   it {should respond_to (:remember_token)}
 	it {should respond_to (:authenticate)}
   it {should respond_to (:admin)}
@@ -121,6 +122,6 @@ describe Student do
 
   describe "remember token" do
     before {@test_student.save}
-    its (:remember_token) {should_not be_blank}
+    its(:remember_token) {should_not be_blank}
     end
 end

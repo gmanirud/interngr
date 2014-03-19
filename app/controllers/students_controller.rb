@@ -16,11 +16,11 @@ class StudentsController < ApplicationController
   end
 
   def new
-      @student = Student.new
-      
+      @student = Student.new      
   end
 
   def edit
+    @student = Student.find(params[:id])
   end
 
   def create

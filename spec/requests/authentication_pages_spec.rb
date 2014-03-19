@@ -6,7 +6,7 @@ describe "Authentication" do
       before { sign_in student }
 
       it { should have_title(student.fname) }
-      it { should have_link('Students',    href: students_path }
+      it { should have_link('Students',    href: students_path) }
       it { should have_link('Profile',     href: student_path(student)) }
       it { should have_link('My Account',  href: edit_student_path(student)) }
       it { should have_link('Sign out',    href: student_signout_path) }
@@ -18,12 +18,13 @@ describe "Authentication" do
       let(:student) {FactoryGirl.create(:student)}
 
         describe "in the Student controller" do
+
           describe "visiting the edit page" do
             before {visit edit_student_path(student)}
             it {should have_title('Sign in')}
           end
 
-          describe "visiting the Students index"
+          describe "visiting the Students index" do
             before {visit students_path}
             it {should have_title('Sign in')}
           end
@@ -41,12 +42,14 @@ describe "Authentication" do
           fill_in "Password", with: student.password
           click_button "Sign in"
         end
-      describe "after sigining in" do
-        it "should render the desired protected page" do
-        expect(page).to have_title('Edit user')
-      end
 
+        describe "after sigining in" do
+          it "should render the desired protected page" do
+          expect(page).to have_title('Edit user')
+        end
+      end
     end
+
     describe "as wrong user" do
       let(:student) {FactoryGirl.create(:student)}
       let(:wrong_student) {FactoryGirl.create(:student, email: "wrong@mail.utoronto.ca")}
@@ -63,6 +66,7 @@ describe "Authentication" do
         specify {expect(response).to redirect_to(root_url)}
       end
     end
+  end
 
   describe "as a non-admin user" do
     let(:student) {FactoryGirl.create(:student)}
@@ -75,4 +79,5 @@ describe "Authentication" do
       specify { expect(response).to redirect_to(root_url) }
     end
   end
+end
 end
