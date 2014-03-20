@@ -5,12 +5,10 @@
     <!--End Navbar-->
 <div class="row" style="margin-top:20px">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-		<form role="form">
-			<fieldset>
 				<h2>Student Sign In</h2>
 				<hr class="colorgraph">
 				<div class="form-group">
-				<%= form_for(:session, url: sessions_path, :html => {:class => "form", :id => "login-nav"}) do |f| %>
+				<%= form_for(:session, url:sessions_path) do |f| %>
 					<%= f.label :email, "Email", :class => "sr-only" %>
                 	<%= f.text_field :email, :placeholder => "Email address", :class => "form-control" %>
 				</div>
@@ -18,11 +16,11 @@
                     <%= f.label :password, "Password", :class => "sr-only" %>
                     <%= f.password_field :password, :placeholder => "Password", :class => "form-control" %>
                 </div>
-				<!--<span class="button-checkbox">
+				<span class="button-checkbox">
 					<button type="button" class="btn" data-color="info">Remember Me</button>
                     <in`put type="checkbox" name="remember_me" id="remember_me" checked="checked" class="hidden">
   					<%= link_to "Forgot Password?", "#", :class => "btn btn-link pull-right" %>	
-				</span>-->
+				</span>
 				<hr>
 				<div class="row">
 					<div class="col-xs-6 col-sm-6 col-md-6">
@@ -33,8 +31,7 @@
 					</div>
 				</div>
 				<%end%>
-			</fieldset>
-		</form>
+
 	</div>
 </div>
 </div>
