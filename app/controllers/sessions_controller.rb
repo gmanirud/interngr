@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
 			redirect_back_or student
 		else
 			flash.now[:error] = 'Invalid email and/or password'
-		    render 'static_pages/student_signin_page'
+		    render 'new'
 	
 		end
 	end
