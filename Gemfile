@@ -4,8 +4,10 @@ ruby '2.0.0'
 
 gem 'rails', '4.0.1'
 gem 'bootstrap-sass',  '~> 3.0.3.0'
+gem "sass-rails", "~> 4.0.2"
 gem 'bcrypt-ruby' , '3.1.2'
 gem 'puma'
+gem 'sass'
 gem 'hirb'
 gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
@@ -22,7 +24,6 @@ group :test do
   gem 'factory_girl_rails', '4.2.1'
 end
 
-gem 'sass-rails', '4.0.1'
 gem 'uglifier', '2.1.1'
 gem 'coffee-rails', '4.0.1'
 gem 'jquery-rails', '3.0.4'
