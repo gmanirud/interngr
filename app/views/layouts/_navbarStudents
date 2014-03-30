@@ -19,8 +19,6 @@
                     <li><%= link_to "My Registered Webinars", '#' %></li>
                     <li><%= link_to "Watched Webinars", '#' %></li>
                     <li><%= link_to "Recorded Webinars", '#' %></li>
-                    <li><%= link_to "Jobs Board", '#' %></li>
-                    <li><%= link_to "My Applied Jobs", '#' %></li>
                   </ul>
                   </li>
                   <li><%= link_to "My Account", edit_student_path(current_student) %></li>
