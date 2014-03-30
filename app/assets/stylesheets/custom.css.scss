@@ -203,3 +203,8 @@ color: #999;
   }
 }
 
+/* Enable dropdown menu on hover*/
+.dropdown:hover .dropdown-menu {
+    display: block;
+ }
+
