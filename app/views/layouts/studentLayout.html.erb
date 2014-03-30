@@ -14,12 +14,9 @@
     <div class="container">
       <!--Navbar-->
       <%= render 'layouts/navbarStudents'%>
-      <!-- Side Menu -->
-      <%= render 'layouts/sidebarStudents'%>
       <%= yield %>
       <%= render 'layouts/footer' %>
       <!--js for the sidebar-->
-      <script type="text/javascript"> sideBar(); </script>
       <%= debug(params) if Rails.env.development? %>
     </div>
 </body>
