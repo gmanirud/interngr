@@ -11,9 +11,6 @@ class Student < ActiveRecord::Base
 	 VALID_EMAIL_REGEX = /[\w+\-.]+@mail.utoronto\.[a-z]+/i
 
 	validates :email, presence: true, format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
-	validates :year, presence: true
-	validates :school, presence: true
-	validates :discipline, presence: true
 	has_secure_password
 	validates :password, length:  {minimum: 6}
 

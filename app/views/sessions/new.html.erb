@@ -11,27 +11,28 @@
 				<%= form_for(:session, url:sessions_path) do |f| %>
 					<%= f.label :email, "Email", :class => "sr-only" %>
                 	<%= f.text_field :email, :placeholder => "Email address", :class => "form-control" %>
-				</div>
-				<div class="form-group">
-                    <%= f.label :password, "Password", :class => "sr-only" %>
-                    <%= f.password_field :password, :placeholder => "Password", :class => "form-control" %>
-                </div>
-				<span class="button-checkbox">
-					<button type="button" class="btn" data-color="info">Remember Me</button>
-                    <in`put type="checkbox" name="remember_me" id="remember_me" checked="checked" class="hidden">
-  					<%= link_to "Forgot Password?", "#", :class => "btn btn-link pull-right" %>	
-				</span>
-				<hr>
-				<div class="row">
-					<div class="col-xs-6 col-sm-6 col-md-6">
-                        <%= f.submit "Sign in", class: "btn btn-lg btn-success btn-block" %>
-					</div>
-					<div class="col-xs-6 col-sm-6 col-md-6">
-						<%= link_to "Register", student_signup_path, :class => "btn btn-lg btn-primary btn-block" %>
+				
+					<div class="form-group">
+                    	<%= f.label :password, "Password", :class => "sr-only" %>
+                    	<%= f.password_field :password, :placeholder => "Password", :class => "form-control" %>
+                	</div>
+                	
+					<span class="button-checkbox">
+						<button type="button" class="btn" data-color="info">Remember Me</button>
+                    	<in`put type="checkbox" name="remember_me" id="remember_me" checked="checked" class="hidden">
+  						<%= link_to "Forgot Password?", "#", :class => "btn btn-link pull-right" %>	
+					</span>
+					<hr>
+					<div class="row">
+						<div class="col-xs-6 col-sm-6 col-md-6">
+                        	<%= f.submit "Sign in", class: "btn btn-lg btn-success btn-block" %>
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-6">
+							<%= link_to "Register", student_signup_path, :class => "btn btn-lg btn-primary btn-block" %>
+						</div>
 					</div>
 				</div>
 				<%end%>
-
 	</div>
 </div>
 </div>

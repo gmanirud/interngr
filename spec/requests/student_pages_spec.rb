@@ -24,7 +24,7 @@ describe "Student pages: " do
 			before(:all) {30.times {FactoryGirl.create(:student)}}
 			after(:all) {Student.delete_all}
 
-			it {should have_selector('div.pagination')}
+			it {should have_selector('ul.pagination')}
 			it "should list each student" do
 				Student.paginate(page: 1).each do |student|
 					expect(page).to have_selector('li', text: student.fname)
@@ -81,9 +81,6 @@ describe "Student pages: " do
 			before do
 				fill_in "First Name",      with: "John"
 				fill_in "Last Name",       with: "Smith"
-				fill_in "School",          with: "University of Toronto"
-				fill_in "Discipline",      with: "ECE"
-				fill_in "Year",            with: "3"
 				fill_in "Email",   with: "student@mail.utoronto.ca"
 				fill_in "Password",        with: "login123", :match => :prefer_exact
 				fill_in "Password Confirmation",    with: "login123", :match => :prefer_exact
@@ -96,16 +93,16 @@ describe "Student pages: " do
 
 			describe "after saving the student" do
 				before {click_button submit}
-				let(:student) {Student.find_By(email: 'student@mail.utoronto.ca')}
+				let(:student) {Student.find_by(email: 'student@mail.utoronto.ca')}
 
-				it {should have_link('sign_out')}
+				it {should have_link('Logout')}
 				it {should have_title (student.fname)}
 				it { should have_selector('div.alert.alert-success', text: 'Welcome') }
 			end
 
 			describe "followed by a signout" do #After signing out, the signin button should appear again
-				before {click_link 'Sign out'} 
-				it {should have_link('Sign in')}
+				before {click_link 'Logout'} 
+				it {should have_link('Student Login')}
 			end
 
 		end
@@ -126,19 +123,5 @@ describe "Student pages: " do
 		 	before {click_button "Save changes"}
 		 	it {should have_content('error')}
 		 end
-
-		describe "with valid information" do
-			let(:new_name) {"New Name"}
-			before do
-				fill_in "First Name", with: new_name
-				click_button "Save changes"
-			end
-
-			it {should have_title(new_name)}
-			it { should have_selector('div.alert.alert-success') }
-			it {should have_link('Sign out', href: signout_path) }
-			specify { expect(user.reload.name).to  eq new_name }
-
-		end
 	end
 end
