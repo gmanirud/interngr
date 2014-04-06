@@ -2,7 +2,7 @@ namespace :db do
 	desc "Fill database with sample users"
 
 	task populate: :environment do
-		Student.create!(fname: "Sample",
+		admin = Student.create!(fname: "Sample",
 						lname: "Student",
 						year: "3",
 						school: "University of Toronto",

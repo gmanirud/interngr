@@ -31,24 +31,6 @@ describe "Student pages: " do
 				end
 			end
 		end
-
-		describe "delete links" do
-			it {should_not have_link('delete')}
-			describe "as an admin user" do
-				let(:admin) { FactoryGirl.create(:admin) }
-				before do
-          			sign_in admin
-          			visit students_path
-        		end
-				it {should have_link('delete', href: student_path(Student.first))}
-				it "should be able to delete another user" do
-					expect do
-						click_link('delete', match: :first)
-					end.to change(Student, :count).by(-1)
-				end
-				it {should_not have_link('delete', href: student_path(admin))} #Dont let admin delete themselves
-			end
-		end
 	end
 
 	describe "signup page" do
@@ -75,36 +57,6 @@ describe "Student pages: " do
 			it "should not create a new student" do
 				expect {click_button submit}.not_to change(Student, :count)
 			end
-		end
-
-		describe "with valid information" do
-			before do
-				fill_in "First Name",      with: "John"
-				fill_in "Last Name",       with: "Smith"
-				fill_in "Email",   with: "student@mail.utoronto.ca"
-				fill_in "Password",        with: "login123", :match => :prefer_exact
-				fill_in "Password Confirmation",    with: "login123", :match => :prefer_exact
-				click_button submit
-			end
-
-			it "should create a new student" do
-				expect {click_button submit}.to change(Student, :count).by(1)
-			end
-
-			describe "after saving the student" do
-				before {click_button submit}
-				let(:student) {Student.find_by(email: 'student@mail.utoronto.ca')}
-
-				it {should have_link('Logout')}
-				it {should have_title (student.fname)}
-				it { should have_selector('div.alert.alert-success', text: 'Welcome') }
-			end
-
-			describe "followed by a signout" do #After signing out, the signin button should appear again
-				before {click_link 'Logout'} 
-				it {should have_link('Student Login')}
-			end
-
 		end
 	end
 
